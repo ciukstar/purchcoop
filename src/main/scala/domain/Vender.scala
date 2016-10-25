@@ -1,4 +1,4 @@
 package domain {
 
-  class Vender
+  class Vender(val id: Long, name: String)
 }
