@@ -11,6 +11,9 @@ package domain {
     val image: Option[Array[Byte]]
   ) {
 
+    def this() =
+      this(id = -1, name = "", categoryId = -1, venderId = -1, price = 0, description = "", link = None, image = None)
+
     def this(name: String, category: Category, vender: Vender, price: Long, description: String) =
       this(-1, name, category.id, vender.id, price, description, None, None)
 

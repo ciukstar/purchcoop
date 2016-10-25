@@ -11,7 +11,7 @@ package domain {
     val categories = table[Category]
     val products = table[Product]
     val dispensers = table[Dispenser]
-    val coops = table[PurchasingCoop]
+    val coops = table[Purchase]
   }
 
 }

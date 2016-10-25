@@ -1,6 +1,6 @@
 package domain {
 
-  class PurchasingCoop(
+  class Purchase(
     val id: Long,
     val product: Product,
     val organizer: User
