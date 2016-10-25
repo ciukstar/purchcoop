@@ -12,5 +12,6 @@ package domain {
   ) {
     def this(firstName: String, lastName: String, patronymic: String, role: Role, mobile: String, email: String, invitedBy: Option[User]) =
       this(-1, firstName, lastName, patronymic, role.id, mobile, email, invitedBy.map(_.id))
+    def this() = this(-1, "","","", -1, "","", None)
   }
 }

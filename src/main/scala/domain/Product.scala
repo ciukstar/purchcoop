@@ -6,12 +6,18 @@ package domain {
     val categoryId: Long,
     val venderId: Long,
     val price: Long,
-    val link: String,
     val description: String,
-    val image: Array[Byte]
+    val link: Option[String],
+    val image: Option[Array[Byte]]
   ) {
 
-    def this(name: String, category: ProductCategory, vender: Vender, price: Long, link: String, description: String, image: Array[Byte]) =
-      this(-1, name, category.id, vender.id, price, link, description, image)
+    def this(name: String, category: Category, vender: Vender, price: Long, description: String) =
+      this(-1, name, category.id, vender.id, price, description, None, None)
+
+    def this(name: String, category: Category, vender: Vender, price: Long, description: String, link: Option[String]) =
+      this(-1, name, category.id, vender.id, price, description, link, None)
+
+    def this(name: String, category: Category, vender: Vender, price: Long, description: String, link: Option[String], image: Option[Array[Byte]]) =
+      this(-1, name, category.id, vender.id, price, description, link, image)
   }
 }
