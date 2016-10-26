@@ -13,7 +13,7 @@ package domain {
     def this(customer: User, purchase: Purchase, quantity: Int) =
       this(-1, customer.id, purchase.id, quantity, LocalDateTime.now())
 
-    def this(customer: User, purchase: Purchase, quantity: Int, orderDate: LocalDateTime)
-      = this(-1, customer.id, purchase.id, quantity, orderDate)
+    def this(customer: User, purchase: Purchase, quantity: Int, orderDate: LocalDateTime) =
+      this(-1, customer.id, purchase.id, quantity, orderDate)
   }
 }

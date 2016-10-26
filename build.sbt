@@ -1,9 +1,10 @@
 
 lazy val root = (project in file(".")).settings(
   organization := "ciukstar.com",
-  name := "purchasing-cooperative",
+  name := "cooper",
   version := "0.1.0",
   scalaVersion in ThisBuild := "2.11.8",
+  parallelExecution in Test := false,
   libraryDependencies := {
     val liftVersion = "3.0-RC4"
     Seq(

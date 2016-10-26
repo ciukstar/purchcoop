@@ -1,6 +1,8 @@
 package domain {
 
-  class Category(val id: Long, val name: String) {
-    def this(name: String) = this(-1, name)
+  import org.squeryl.KeyedEntity
+
+  class Category(val name: String) extends KeyedEntity[Long] {
+    val id: Long = -1
   }
 }
