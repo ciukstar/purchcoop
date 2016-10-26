@@ -12,8 +12,8 @@ package domain {
       inTransaction {
         val adminRole = roles.insert(new Role("Administrator", RoleType.Admin))
         val organiserRole = roles.insert(new Role("Organizer", RoleType.Organizer))
-        val admin = users.insert(new User("Sergiu", "Starciuc", "", adminRole, "916834567", "admin@coop.com", None))
-        val organizer = users.insert(new User("Zarina", "Musina", "", organiserRole, "819387192", "orga@coop.com", None))
+        val admin = users.insert(new User("MyFirstName", "MyLastName", "", adminRole, "916834567", "admin@coop.com", None))
+        val organizer = users.insert(new User("OtherFirstName", "OtherLastName", "", organiserRole, "819387192", "orga@coop.com", None))
 
         val category = categories.insert( new Category("Cat1"))
         val vender = venders.insert(new Vender("V1"))
