@@ -2,12 +2,11 @@ package domain {
 
   import com.mchange.v2.c3p0.ComboPooledDataSource
   import org.squeryl.adapters.H2Adapter
-  import org.squeryl.{PrimitiveTypeMode, Session, SessionFactory}
+  import org.squeryl.{Session, SessionFactory}
 
-  object Database extends PrimitiveTypeMode {
-
-    def init: Unit = {
-      val ds = new ComboPooledDataSource
+  trait Database {
+    val ds = new ComboPooledDataSource
+    def initDatasource: Unit = {
       ds.setDriverClass("org.h2.Driver")
       ds.setJdbcUrl("jdbc:h2:mem:cooper")
       ds.setUser("root")
@@ -20,8 +19,8 @@ package domain {
         Some(() => Session.create(ds.getConnection, new H2Adapter))
     }
 
-    def teardown: Unit = {
-      
+    def teardownDatasource: Unit = {
+      ds.close()
     }
   }
 

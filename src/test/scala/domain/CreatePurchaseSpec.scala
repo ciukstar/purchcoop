@@ -1,10 +1,10 @@
 package domain {
 
   import org.scalatest._
-  import Database._
   import DomainSchema._
+  import org.squeryl.customtypes.CustomTypesMode._
 
-  class CreatePurchaseSpec extends FlatSpec
+  class CreatePurchaseSpec extends FlatSpec with Database
     with Matchers with OneInstancePerTest with BeforeAndAfterAll with BeforeAndAfterEach {
 
     "A Purchase" should "be created for an organizer user for a Product" in {
@@ -34,7 +34,7 @@ package domain {
     }
 
     override def beforeAll(): Unit = {
-      Database.init
+      initDatasource
       inTransaction { DomainSchema.create }
     }
 
@@ -49,6 +49,7 @@ package domain {
       }
     }
 
-    override def afterAll(): Unit = Database.teardown
+    override def afterAll(): Unit =
+      teardownDatasource
   }
 }

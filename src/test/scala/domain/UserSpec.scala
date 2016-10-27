@@ -1,10 +1,10 @@
 package domain {
 
-  import Database._
+  import org.squeryl.customtypes.CustomTypesMode._
   import org.scalatest._
   import DomainSchema._
 
-  class UserSpec extends FlatSpec
+  class UserSpec extends FlatSpec with Database
     with Matchers with OneInstancePerTest with BeforeAndAfterAll with BeforeAndAfterEach {
 
     "users.insert" should "create a new User" in {
@@ -30,7 +30,7 @@ package domain {
     }
 
     override def beforeAll(): Unit = {
-      Database.init
+      initDatasource
       inTransaction { DomainSchema.create }
     }
 
@@ -41,6 +41,6 @@ package domain {
     }
 
     override def afterAll(): Unit =
-      Database.teardown
+      teardownDatasource
   }
 }

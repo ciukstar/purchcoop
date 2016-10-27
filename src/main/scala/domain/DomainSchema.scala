@@ -1,9 +1,9 @@
 package domain {
 
   import org.squeryl.{Schema}
-  import Database._
+  import org.squeryl.customtypes.CustomTypesMode._
 
-  object DomainSchema extends Schema {
+  object DomainSchema extends Schema  {
 
     val roles = table[Role]
     val users = table[User]

@@ -1,10 +1,10 @@
 package domain {
 
   import org.scalatest._
-  import Database._
   import DomainSchema._
+  import org.squeryl.customtypes.CustomTypesMode._
 
-  class CategorySpec extends FlatSpec
+  class CategorySpec extends FlatSpec with Database
     with Matchers with OneInstancePerTest with BeforeAndAfterAll with BeforeAndAfterEach {
 
     "categories.insert(new Category(\"clothing\"))" should "create a new Category" in {
@@ -23,7 +23,7 @@ package domain {
     }
 
     override def beforeAll(): Unit = {
-      Database.init
+      initDatasource
       inTransaction { DomainSchema.create }
     }
 
@@ -31,8 +31,7 @@ package domain {
       inTransaction { categories.deleteWhere(_ => 1 === 1) }
     }
 
-    override def afterAll(): Unit = {
-      Database.teardown
-    }
+    override def afterAll(): Unit =
+      teardownDatasource
   }
 }
