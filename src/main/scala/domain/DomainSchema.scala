@@ -1,7 +1,7 @@
 package domain {
 
   import org.squeryl.{Schema}
-  import DomainPrimitiveTypeMode._
+  import Database._
 
   object DomainSchema extends Schema {
 
@@ -12,6 +12,7 @@ package domain {
     val products = table[Product]
     val dispensers = table[Dispenser]
     val coops = table[Purchase]
+
   }
 
 }

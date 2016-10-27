@@ -1,10 +1,10 @@
 package domain {
 
   import org.scalatest._
-  import DomainPrimitiveTypeMode._
+  import Database._
   import DomainSchema._
 
-  class CreatePurchaseSpec extends FlatSpec with DatabaseInit
+  class CreatePurchaseSpec extends FlatSpec
     with Matchers with OneInstancePerTest with BeforeAndAfterAll with BeforeAndAfterEach {
 
     "A Purchase" should "be created for an organizer user for a Product" in {
@@ -34,7 +34,7 @@ package domain {
     }
 
     override def beforeAll(): Unit = {
-      configureDb()
+      Database.init
       inTransaction { DomainSchema.create }
     }
 
@@ -49,6 +49,6 @@ package domain {
       }
     }
 
-    override def afterAll(): Unit = closeDbConnections()
+    override def afterAll(): Unit = Database.teardown
   }
 }

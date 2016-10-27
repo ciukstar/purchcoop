@@ -3,7 +3,9 @@ package domain {
   import org.squeryl.KeyedEntity
 
   class User(
-    val fullName: FullName,
+    val firstName: String,
+    val lastName: String,
+    val patronymic: String,
     val roleId: Long,
     val phone: String,
     val email: String,
@@ -13,8 +15,14 @@ package domain {
     val id: Long = -1
 
     def this(fullName: FullName, role: Role, mobile: String, email: String, invitedBy: Option[User]) =
-      this(fullName, role.id, mobile, email, invitedBy.map(_.id))
+      this(fullName.firstName, fullName.lastName, fullName.patronymic, role.id, mobile, email, invitedBy.map(_.id))
 
-    def this() = this(new FullName("", "", ""), -1, "", "", None)
+    def this(fullName: FullName, role: Role, mobile: String, email: String) =
+      this(fullName, role, mobile, email, None)
+
+    def this() =
+      this("", "", "", -1, "", "", None)
+
+    def fullName: FullName = FullName(firstName, lastName, patronymic)
   }
 }

@@ -1,10 +1,10 @@
 package domain {
 
   import org.scalatest._
-  import DomainPrimitiveTypeMode._
+  import Database._
   import DomainSchema._
 
-  class CategorySpec extends FlatSpec with DatabaseInit
+  class CategorySpec extends FlatSpec
     with Matchers with OneInstancePerTest with BeforeAndAfterAll with BeforeAndAfterEach {
 
     "categories.insert(new Category(\"clothing\"))" should "create a new Category" in {
@@ -23,7 +23,7 @@ package domain {
     }
 
     override def beforeAll(): Unit = {
-      configureDb()
+      Database.init
       inTransaction { DomainSchema.create }
     }
 
@@ -32,7 +32,7 @@ package domain {
     }
 
     override def afterAll(): Unit = {
-      closeDbConnections()
+      Database.teardown
     }
   }
 }

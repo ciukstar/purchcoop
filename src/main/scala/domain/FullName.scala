@@ -1,4 +1,4 @@
 package domain {
 
-  class FullName(val firstName: String, val lastName: String, val patronymic: String)
+  case class FullName(val firstName: String, val lastName: String, val patronymic: String)
 }
