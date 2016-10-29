@@ -1,24 +1,32 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>COOPER</title>
-    <link rel="stylesheet" type="text/css" href="/resources/css/default.css">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="keywords" content="Cooperative Purchasing">
+    <meta name="description" content="Cooperative Purchasing">
+    <title>COOPER</title>                                                                              
+    <link rel="stylesheet" type="text/css" href="resources/primeui/themes/aristo/theme.css">
+    <link rel="stylesheet" type="text/css" href="resources/jquery-ui-dist/jquery-ui.min.css">
+    <link rel="stylesheet" type="text/css" href="resources/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="resources/primeui/primeui.min.css">
+    <link rel="stylesheet" type="text/css" href="resources/css/default.css">
+    <script type="text/javascript" src="resources/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="resources/jquery-ui-dist/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="resources/primeui/primeui.min.js"></script>
+    <script type="text/javascript" src="resources/js/default.js"></script>
+
   </head>
   <body>
-    <div id="north-area">
-        <ol id="main-menu" class="menu toolbar">
-            <li>Products</li>
-            <li>Venders</li>
-            <li>Purchases</li>
-            <li>Dispensers</li>
-            <li>Login/Register</li>
-        </ol>
-    </div>
-    <div id="center-area">
-        Center Area
-    </div>
-    <div id="south-area">
-        South Area
-    </div>
+      <div id="north-area">
+        <span data-lift="embed?what=main-menubar"></span>
+      </div>
+      <div id="content">
+        <div id="west-area">West Area</div>
+        <div id="center-area">Center Area</div>
+        <div id="east-area">East Area</div>
+      </div>
+      <div id="south-area">
+        <span data-lift="embed?what=footer"></span>
+      </div>
   </body>
 </html>
