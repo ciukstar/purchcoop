@@ -4,18 +4,18 @@ $(function() {
 
 	$('.input_text').puiinputtext();
 
-	$('.create_button').puibutton({
+	$('.add-button').puibutton({
 		icon: 'fa-plus',
 		click: function() {
 			$('#applicant').puidialog('show');
 		}
 	});
 	
-	$('.edit_button').puibutton({
+	$('.edit-button').puibutton({
 		icon: 'fa-pencil'
 	});
 	
-	$('.delete_button').puibutton({
+	$('.delete-button').puibutton({
 		icon: 'fa-trash'
 	});
 
@@ -49,33 +49,31 @@ $(function() {
 					dataType: "json",
 				}).done(function(data) { 
 					$("#applicant").puidialog("hide"); 
-					updateApplicantsDataTable();	
+					updateCategoryDataTable();	
 				});
 			}
 		}]
 	});
 
-	updateApplicantsDataTable();
+	updateCategoryDataTable();
 });
 
 
-	function updateApplicantsDataTable() {
+	function updateCategoryDataTable() {
 
-	$('#applicants_data_table').puidatatable({
-		caption: 'Applicants',
+	$('#category-data-table').puidatatable({
+		caption: 'Categories',
 		paginator: { rows: 10 },
 		selectionMode: "single",
 		resizableColumns: true,
 		columns: [
 			{field: 'id', headerText: 'Id'},
-			{field: 'surname', headerText: 'Surname'},
 			{field: 'name', headerText: 'Name'},
-			{field: 'patronymic', headerText: 'Patronymic'}
 		],
 		datasource: function(callback) {
 			$.ajax({
 				type: "GET",
-				url: "/api/applicants",
+				url: "/api/categories",
 				dataType: "json",
 				context: this,
 				success: function(response) {
