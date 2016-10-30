@@ -1,4 +1,4 @@
-package domain {
+package edu.ciukstar.cooper.domain {
 
   class Dispenser(val id: Long, val address: String, val map: Option[Array[Byte]]) {
 

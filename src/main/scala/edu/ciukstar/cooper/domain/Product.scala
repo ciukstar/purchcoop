@@ -1,4 +1,4 @@
-package domain {
+package edu.ciukstar.cooper.domain {
 
   class Product(
     val id: Long,

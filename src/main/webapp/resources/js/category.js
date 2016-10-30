@@ -2,12 +2,12 @@ $(function() {
 
 	$('.msg').puimessages();
 
-	$('.input_text').puiinputtext();
+	$('.input-text').puiinputtext();
 
 	$('.add-button').puibutton({
 		icon: 'fa-plus',
 		click: function() {
-			$('#applicant').puidialog('show');
+			$('#category').puidialog('show');
 		}
 	});
 	
@@ -19,8 +19,7 @@ $(function() {
 		icon: 'fa-trash'
 	});
 
-	$('#applicant').puidialog({
-		responsive: true,
+	$('#category').puidialog({
 		minWidth: 600,
 		minHeight: 500,
 		modal: true,
@@ -28,27 +27,25 @@ $(function() {
 			text: 'Cancel',
 			icon: 'fa-ban',
 			click: function() {
-				$('#applicant').puidialog('hide');
+				$('#category').puidialog('hide');
 			}
 		},{
 			text: 'Save',
 			icon: 'fa-save',
 			click: function() {
-				var applicant = {
-					surname: $("#applicant_surname").val(),
-					name: $("#applicant_name").val(),
-					patronymic: $("#applicant_patronymic").val()
+				var category = {
+					name: $("#category-name").val()
 				};
 
 				$.ajax({
-					url: "/api/applicants",
+					url: "/api/categories",
 					type: "POST",
 					contentType: "application/json; charset=utf-8",
-					data: JSON.stringify(applicant),
+					data: JSON.stringify(category),
 					traditional: true,
 					dataType: "json",
 				}).done(function(data) { 
-					$("#applicant").puidialog("hide"); 
+					$("#category").puidialog("hide"); 
 					updateCategoryDataTable();	
 				});
 			}
@@ -59,7 +56,7 @@ $(function() {
 });
 
 
-	function updateCategoryDataTable() {
+function updateCategoryDataTable() {
 
 	$('#category-data-table').puidatatable({
 		caption: 'Categories',

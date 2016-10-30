@@ -1,4 +1,4 @@
-package domain {
+package edu.ciukstar.cooper.domain {
 
   import com.mchange.v2.c3p0.ComboPooledDataSource
   import org.squeryl.adapters.H2Adapter
@@ -6,6 +6,7 @@ package domain {
 
   trait Database {
     val ds = new ComboPooledDataSource
+
     def initDatasource: Unit = {
       ds.setDriverClass("org.h2.Driver")
       ds.setJdbcUrl("jdbc:h2:mem:cooper")

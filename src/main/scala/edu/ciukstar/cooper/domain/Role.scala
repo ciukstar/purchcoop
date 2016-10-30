@@ -1,4 +1,4 @@
-package domain {
+package edu.ciukstar.cooper.domain {
 
   object RoleType extends Enumeration {
     val Admin = Value(1, "Admin")
