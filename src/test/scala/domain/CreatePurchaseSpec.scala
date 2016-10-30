@@ -1,4 +1,4 @@
-package domain {
+package edu.ciukstar.cooper.domain {
 
   import org.scalatest._
   import DomainSchema._

@@ -6,6 +6,7 @@ package edu.ciukstar.cooper.domain {
 
   trait Database {
     val ds = new ComboPooledDataSource
+
     def initDatasource: Unit = {
       ds.setDriverClass("org.h2.Driver")
       ds.setJdbcUrl("jdbc:h2:mem:cooper")

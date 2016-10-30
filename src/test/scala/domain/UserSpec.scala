@@ -1,4 +1,4 @@
-package domain {
+package edu.ciukstar.cooper.domain {
 
   import org.squeryl.customtypes.CustomTypesMode._
   import org.scalatest._
