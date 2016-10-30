@@ -7,7 +7,7 @@ $(function() {
 	$('.add-button').puibutton({
 		icon: 'fa-plus',
 		click: function() {
-			$('#category').puidialog('show');
+			$('#category-dialog').puidialog('show');
 		}
 	});
 	
@@ -19,15 +19,18 @@ $(function() {
 		icon: 'fa-trash'
 	});
 
-	$('#category').puidialog({
-		minWidth: 600,
-		minHeight: 500,
-		modal: true,
+	$('#category-dialog').puidialog({
+        title: 'Category',
+        width: 600,
+        minWidth: 300,
+        height: 300,
+		minHeight: 200,
+		modal: false,
 		buttons: [{
 			text: 'Cancel',
 			icon: 'fa-ban',
 			click: function() {
-				$('#category').puidialog('hide');
+				$('#category-dialog').puidialog('hide');
 			}
 		},{
 			text: 'Save',
@@ -45,7 +48,7 @@ $(function() {
 					traditional: true,
 					dataType: "json",
 				}).done(function(data) { 
-					$("#category").puidialog("hide"); 
+					$("#category-dialog").puidialog("hide"); 
 					updateCategoryDataTable();	
 				});
 			}
