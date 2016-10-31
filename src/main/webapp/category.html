@@ -6,17 +6,25 @@
   </head>
   <body data-lift-content-id="category-dialog">
     <div id="category-dialog" class="ui-grid-responsive">
-      <div class="ui-grid-row">
-        <div class="ui-grid-col-3">
-          <label for="category-name">Name</label>
+      <form>
+        <div class="ui-grid-row">
+          <div class="ui-grid-col-3">
+            <label for="category-name">Name</label>
+          </div>
+          <div class="ui-grid-col-7">
+            <input id="category-name" type="text" class="input-text" size="50" required>
+          </div>
+          <div class="ui-grid-col-2">
+            <div id="category-name-msg" class="msg"></div>
+          </div>
         </div>
-        <div class="ui-grid-col-7">
-          <input id="category-name" type="text" class="input-text">
-        </div>
-        <div class="ui-grid-col-2">
-          <div id="category-name-msg" class="msg"></div>
-        </div>
-      </div>
+        <fieldset id="category-image-fieldset">
+          <legend>Image</legend>
+          <input type="file" id="category-image-input-file" hidden>
+          <button type="button" id="category-image-upload-button" class="upload-button">Select a picture ...</button>
+          <button type="button" id="category-image-upload-cancel-button" class="close-button"></button>
+        </fieldset>
+      </form>
     </div>
   </body>
 </html>

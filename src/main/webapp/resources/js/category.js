@@ -19,6 +19,20 @@ $(function() {
 		icon: 'fa-trash'
 	});
 
+    $('category-image-fieldset').puifieldset();
+    
+    $('.upload-button').puibutton({
+        icon: 'fa-upload'
+    })
+
+    $('.close-button').puibutton({
+        icon: 'fa-close'
+    })
+
+    $('#category-image-upload-button').click(function() {
+      $('category-image-input-file').clisk();
+    })
+
 	$('#category-dialog').puidialog({
         title: 'Category',
         width: 600,
