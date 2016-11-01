@@ -1,22 +1,19 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <title>Categories</title>
-</head>
-<body data-lift-content-id="main">
-  <div id="main" data-lift="surround?with=default;at=center-area">
-    <script data-lift="head" type="text/javascript" src="resources/js/category.js"></script>
-    <div class="toolbar">
-      <div class="left"></div>
-      <div class="right">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Categories</title>
+  </head>
+  <body data-lift-content-id="categories">
+    <div id="categories" data-lift="surround?with=default;at=center-area">
+      <script data-lift="tail" type="text/javascript" src="resources/js/category.js"></script>
+      <div class="toolbar">
         <button type="button" class="add-button">Create</button>
         <button type="button" class="edit-button">Edit</button>
         <button type="button" class="delete-button">Delete</button>
       </div>
+      <div data-lift="embed?what=category"></div>
+      <div id="category-data-table"></div>
     </div>
-    <div data-lift="embed?what=category"></div>
-    <div id="category-data-table"></div>
-  </div>
-</body>
+  </body>
 </html>
