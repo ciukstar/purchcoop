@@ -2,7 +2,7 @@ $(function() {
 
 	$('.msg').puimessages();
 
-	$('.input-text').puiinputtext();
+	$('input[type="text"]').puiinputtext();
 
 	$('.add-button').puibutton({
 		icon: 'fa-plus',
