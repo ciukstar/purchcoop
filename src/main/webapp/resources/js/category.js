@@ -1,37 +1,12 @@
 $(function() {
 
-	$('.msg').puimessages();
-
-	$('input[type="text"]').puiinputtext();
-
-	$('.add-button').puibutton({
-		icon: 'fa-plus',
-		click: function() {
-			$('#category-dialog').puidialog('show');
-		}
-	});
-	
-	$('.edit-button').puibutton({
-		icon: 'fa-pencil'
-	});
-	
-	$('.delete-button').puibutton({
-		icon: 'fa-trash'
+	$('#create-new-category-button').puibutton({
+		click: function() { $('#category-dialog').puidialog('show'); }
 	});
 
-    $('category-image-fieldset').puifieldset();
-    
-    $('.upload-button').puibutton({
-        icon: 'fa-upload'
-    })
-
-    $('.close-button').puibutton({
-        icon: 'fa-close'
-    })
-
-    $('#category-image-upload-button').click(function() {
-      $('category-image-input-file').clisk();
-    })
+    $('#category-image-upload-button').on('click', function() {
+        $('#category-image-input-file').click();
+    });
 
 	$('#category-dialog').puidialog({
         title: 'Category',
