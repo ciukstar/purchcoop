@@ -14,7 +14,7 @@ $(function() {
         minWidth: 300,
         height: 300,
 		minHeight: 200,
-		modal: false,
+		modal: true,
 		buttons: [{
 			text: 'Cancel',
 			icon: 'fa-ban',
@@ -28,7 +28,6 @@ $(function() {
 				var category = {
 					name: $("#category-name").val()
 				};
-
 				$.ajax({
 					url: "/api/categories",
 					type: "POST",

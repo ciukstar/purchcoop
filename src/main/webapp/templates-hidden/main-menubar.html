@@ -1,19 +1,26 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Main Menu</title>
-  </head>
-  <body data-lift-content-id="main-menubar">
-      <ul id="main-menubar">
-        <script data-lift="tail" type="text/javascript" src="/resources/js/main-menubar.js"></script>
-        <li><a href="/index" data-icon="fa-home">Home</a></li>
-        <li><a href="/products" data-icon="fa-pagelines">Products</a></li>
-        <li><a href="/categories" data-icon="fa-sitemap">Categories</a></li>
-        <li><a href="/venders" data-icon="fa-gears">Venders</a></li>
-        <li><a href="/purchases" data-icon="fa-calendar">Purchases</a></li>
-        <li><a href="/dispensers" data-icon="fa-institution">Dispensers</a></li>
-        <li><a href="/login" data-icon="fa-sign-in">Login</a></li>
-      </ul>
-  </body>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>Main Menu</title>
+    </head>
+    <body data-lift-content-id="main-menubar">
+        <ul id="main-menubar">
+            <script data-lift="tail" type="text/javascript" src="/resources/js/main-menubar.js"></script>
+            <li><a href="/index" data-icon="fa-home">Home</a></li>
+            <li>
+                <a data-icon="fa-wrench">Admin</a>
+                <ul>
+                    <li><a href="/users" data-icon="fa-users">Users</a></li>
+                    <li><a href="/roles" data-icon="fa-tags">Roles</a></li>
+                </ul>
+            </li>
+            <li><a href="/products" data-icon="fa-pagelines">Products</a></li>
+            <li><a href="/categories" data-icon="fa-sitemap">Categories</a></li>
+            <li><a href="/venders" data-icon="fa-gears">Venders</a></li>
+            <li><a href="/purchases" data-icon="fa-calendar">Purchases</a></li>
+            <li><a href="/dispensers" data-icon="fa-institution">Dispensers</a></li>
+            <li><a href="/login" data-icon="fa-sign-in">Login</a></li>
+        </ul>
+    </body>
 </html>

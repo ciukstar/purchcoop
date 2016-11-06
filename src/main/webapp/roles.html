@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="author" content="Sergiu Starciuc">
+        <mata name="description" content="Roles">
+            <meta http-equiv="Content-Type" content="text/html">
+            <title>Roles</title>
+    </head>
+    <body data-lift-content-id="role-container">
+        <div id="role-container" data-lift="surround?with=default;at=content">
+            <div id="role-crud-toolbar" class="toolbar">
+                <button type="button" id="create-new-role-button" class="create-new-item-button">Create</button>
+                <button type="button" id="edit-selected-role-button" class="edit-selected-item-button">Edit</button>
+                <button type="button" id="delete-selected-role-button" class="delete-selected-item-button">Delete</button>
+            </div>
+            <div id="role-data-table">User Roles</div>
+
+            <div id="role-dialog" class="crud-dialog">
+                <form>
+                    <div id="role-messages"></div>
+                    <label for="role-name">Name</label>
+                    <input type="text" id="role-name" name="role-name">
+                    <label for="role-description">Description</label>
+                    <textarea id="role-description"></textarea>
+                </form>
+            </div>
+            <script src="resources/js/role.js" data-lift="tail"></script>
+        </div>
+
+    </body>
+</html>
