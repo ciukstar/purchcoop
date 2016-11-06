@@ -1,14 +1,21 @@
 package edu.ciukstar.cooper.domain {
 
+  import org.squeryl.KeyedEntity
+
   object RoleType extends Enumeration {
     val Admin = Value(1, "Admin")
     val Organizer = Value(2, "Organizer")
     val Customer = Value(3, "Customer")
   }
 
-  class Role(val id: Long, val name: String, val roleType: RoleType.Value) {
-    def this(name: String, roleType: RoleType.Value) = this(-1, name, roleType)
-    def this(name: String) = this(-1, name, RoleType.Customer)
+  class Role(
+    val name: String,
+    val roleType: RoleType.Value,
+    val description: String
+  ) extends KeyedEntity[Long] {
+    val id: Long = -1
+
+    def this(name: String) = this(name, RoleType.Customer, "")
   }
 
 }

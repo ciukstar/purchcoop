@@ -1,7 +1,7 @@
 package bootstrap.liftweb
 
 import edu.ciukstar.cooper.domain.{Database, DomainSchema}
-import edu.ciukstar.cooper.lib.CategoryService
+import edu.ciukstar.cooper.lib.{ CategoryService, RoleService }
 import net.liftweb.http.{Html5Properties, LiftRules, Req}
 import org.squeryl.customtypes.CustomTypesMode._
 
@@ -13,6 +13,7 @@ class Boot extends Database {
     LiftRules.htmlProperties.default.set((r: Req) => new Html5Properties(r.userAgent))
 
     CategoryService.init()
+    RoleService.init()
 
     initDatasource
     inTransaction { DomainSchema.create }
