@@ -1,4 +1,6 @@
 $(function() {
+    var $category = $('#category-dialog');
+    var $categories = $('#category-data-table');
 
 	$('#create-new-category-button').puibutton({
 		click: function() { $('#category-dialog').puidialog('show'); }
@@ -8,7 +10,7 @@ $(function() {
         $('#category-image-input-file').click();
     });
 
-	$('#category-dialog').puidialog({
+	$category.puidialog({
         title: 'Category',
         width: 600,
         minWidth: 300,
@@ -19,7 +21,7 @@ $(function() {
 			text: 'Cancel',
 			icon: 'fa-ban',
 			click: function() {
-				$('#category-dialog').puidialog('hide');
+				$category.puidialog('hide');
 			}
 		},{
 			text: 'Save',
@@ -36,32 +38,26 @@ $(function() {
 					traditional: true,
 					dataType: "json",
 				}).done(function(data) { 
-					$("#category-dialog").puidialog("hide"); 
-					updateCategoryDataTable();	
+					$category.puidialog("hide"); 
+					$categories.puidatatable('reload');
 				});
 			}
 		}]
 	});
 
-	updateCategoryDataTable();
-});
-
-
-function updateCategoryDataTable() {
-
-	$('#category-data-table').puidatatable({
+	$categories.puidatatable({
 		caption: 'Categories',
 		paginator: { rows: 10 },
 		selectionMode: "single",
 		resizableColumns: true,
 		columns: [
 			{field: 'id', headerText: 'Id'},
-			{field: 'name', headerText: 'Name'},
-		],
+			{field: 'name', headerText: 'Name'}
+        ],
 		datasource: function(callback) {
 			$.ajax({
-				type: "GET",
-				url: "/api/categories",
+                url: "/api/categories",
+				method: "GET",
 				dataType: "json",
 				context: this,
 				success: function(response) {
@@ -70,4 +66,4 @@ function updateCategoryDataTable() {
 			});
 		}
 	});
-	}
+});

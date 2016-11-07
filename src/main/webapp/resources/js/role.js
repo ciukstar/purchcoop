@@ -1,18 +1,17 @@
 $(document).ready(function() {
     var $msgs = $('#role-messages');
-    var $dlg = $('#role-dialog');
+    var $role = $('#role-dialog');
+    var $roles = $('#role-data-table');
+    var $rolesContextMenu = $('#roles-context-menu');
 
     $msgs.puimessages();
-
-    $('#create-new-role-button')
-        .on('click', function(e) { $dlg.puidialog('show'); });
     
-    $dlg.puidialog({
+    $role.puidialog({
         width: 600, height: 300, modal: false,
         showEffect: 'fade', hideEffect: 'fade',
         buttons: [{
             text: 'Cancel', icon: 'fa-ban',
-            click: function(e) { $dlg.puidialog('hide'); }
+            click: function(e) { $role.puidialog('hide'); }
         },{
             text: 'Save', icon: 'fa-save',
             click: function(e) {
@@ -28,11 +27,39 @@ $(document).ready(function() {
                    dataType: 'json',
                    traditional: true
                 }).done(function(data) {
-                    $dlg.puidialog('hide');
+                    $role.puidialog('hide');
+                    $roles.puidatatable('reload');
                 }).fail(function(data) {
                     $msgs.puimessages('show', 'error', {summary: 'Error', detail: data.message});
                 });
             }
         }]
     });
-})
+    
+    $roles.puidatatable({
+        caption: 'Roles',
+        selectionMode: 'single',
+        columns: [
+            { field: 'id', headerText: 'Id' },
+            { field: 'name', headerText: 'Name'}
+        ],
+        datasource: function(callback) {
+            $.ajax({
+                url: '/api/roles',
+                method: 'GET',
+                dataType: 'json',
+                context: this,
+                success: function(response) {
+                    callback.call(this, response);
+                }
+            });
+        }
+    });
+
+    $rolesContextMenu.puicontextmenu({
+        target: $roles
+    });
+
+    $('#create-new-role-anchor, #edit-selected-role-anchor').on('click', function() { $role.puidialog('show'); });
+    $('#delete-selected-role-anchor').on('click', function() { $role.puidialog('show') });
+});

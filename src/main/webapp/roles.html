@@ -8,13 +8,12 @@
     </head>
     <body data-lift-content-id="role-container">
         <div id="role-container" data-lift="surround?with=default;at=content">
-            <div id="role-crud-toolbar" class="toolbar">
-                <button type="button" id="create-new-role-button" class="create-new-item-button">Create</button>
-                <button type="button" id="edit-selected-role-button" class="edit-selected-item-button">Edit</button>
-                <button type="button" id="delete-selected-role-button" class="delete-selected-item-button">Delete</button>
-            </div>
-            <div id="role-data-table">User Roles</div>
-
+            <div id="role-data-table"></div>
+            <ul id="roles-context-menu">
+                <li><a id="create-new-role-anchor" data-icon="fa-plus">Create</a></li>
+                <li><a id="edit-selected-role-anchor" data-icon="fa-pencil">Edit</a></li>
+                <li><a id="delete-selected-role-anchor" data-icon="fa-trash">Delete</a></li>
+            </ul>
             <div id="role-dialog" class="crud-dialog">
                 <form>
                     <div id="role-messages"></div>
@@ -24,7 +23,7 @@
                     <textarea id="role-description"></textarea>
                 </form>
             </div>
-            <script src="resources/js/role.js" data-lift="tail"></script>
+            <script src="/resources/js/role.js" type="text/javascript" data-lift="tail"></script>
         </div>
 
     </body>

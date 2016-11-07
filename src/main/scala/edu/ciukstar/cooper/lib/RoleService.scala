@@ -3,7 +3,7 @@ package edu.ciukstar.cooper.lib {
   import edu.ciukstar.cooper.domain.Role
   import net.liftweb.http.{ JsonResponse, LiftRules }
   import net.liftweb.http.rest.RestHelper
-  import net.liftweb.json.{ JObject }
+  import net.liftweb.json.{ JObject, JArray }
   import org.squeryl.customtypes.CustomTypesMode._
   import edu.ciukstar.cooper.domain.DomainSchema._
   import net.liftweb.json.JsonDSL._
@@ -16,6 +16,9 @@ package edu.ciukstar.cooper.lib {
     }
 
     serve("api" / "roles" prefix {
+      case Nil JsonGet req => inTransaction {
+        JsonResponse(JArray(from(roles)(r => select(r)).seq.toList.map(r => ("id" -> r.id) ~ ("name" -> r.name))))
+      }
       case Nil JsonPost req => inTransaction {
         val r = roles.insert(req._1.asInstanceOf[JObject].extract[Role])
         val json = ("id" -> r.id) ~ ("name" -> r.name)
