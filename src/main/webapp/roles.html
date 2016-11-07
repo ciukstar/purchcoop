@@ -6,25 +6,54 @@
             <meta http-equiv="Content-Type" content="text/html">
             <title>Roles</title>
     </head>
-    <body data-lift-content-id="role-container">
-        <div id="role-container" data-lift="surround?with=default;at=content">
-            <div id="role-data-table"></div>
-            <ul id="roles-context-menu">
-                <li><a id="create-new-role-anchor" data-icon="fa-plus">Create</a></li>
-                <li><a id="edit-selected-role-anchor" data-icon="fa-pencil">Edit</a></li>
-                <li><a id="delete-selected-role-anchor" data-icon="fa-trash">Delete</a></li>
-            </ul>
-            <div id="role-dialog" class="crud-dialog">
-                <form>
-                    <div id="role-messages"></div>
-                    <label for="role-name">Name</label>
-                    <input type="text" id="role-name" name="role-name">
-                    <label for="role-description">Description</label>
-                    <textarea id="role-description"></textarea>
-                </form>
+    <body data-lift-content-id="wrapper">
+        <div id="wrapper" data-lift="surround?with-default;at=center-area">
+            
+            <link rel="stylesheet" href="/resources/css/role.css" type="text/css" data-lift="head">
+            
+            <div id="leftnav">
+                <div id="action-panel" title="Actions">
+                    Actions
+                </div>
+                <div id="nav-panel" title="Navigation">Nav links</div>
+            </div>
+
+            <div id="content">
+                <div id="role-data-table"></div>
+                <ul id="roles-context-menu">
+                    <li><a id="create-new-role-anchor" data-icon="fa-plus">Create</a></li>
+                    <li><a id="edit-selected-role-anchor" data-icon="fa-pencil">Edit</a></li>
+                    <li><a id="delete-selected-role-anchor" data-icon="fa-trash">Delete</a></li>
+                </ul>
+                <div id="role-dialog" class="crud-dialog">
+                    <form>
+                        <div class="ui-grid ui-grid-responsive">
+                            <div class="ui-grid-row">
+                                <div class="ui-grid-col-12">
+                                    <div id="role-messages"></div>
+                                </div>
+                            </div>
+                            <div class="ui-grid-row">
+                                <div class="ui-grid-col-2">
+                                    <label for="role-name">Name</label>
+                                </div>
+                                <div class="ui-grid-col-10">
+                                    <input type="text" id="role-name" name="role-name" size="50">
+                                </div>
+                            </div>
+                            <div class="ui-grid-row">
+                                <div class="ui-grid-col-2">
+                                    <label for="role-description">Description</label>
+                                </div>
+                                <div class="ui-grid-col-10">
+                                    <textarea id="role-description" name="role-description" cols="50" rows="5"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
             <script src="/resources/js/role.js" type="text/javascript" data-lift="tail"></script>
         </div>
-
     </body>
 </html>

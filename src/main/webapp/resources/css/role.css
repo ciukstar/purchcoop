@@ -1,0 +1,18 @@
+#wrapper {
+    display: table;
+}
+#leftnav, #content {
+    display: table-cell;
+}
+
+#leftnav {
+    width: 20%;
+}
+
+.ui-panel {
+    margin-bottom: 10px;
+}
+
+#content {
+    padding: 5px 5px;
+}

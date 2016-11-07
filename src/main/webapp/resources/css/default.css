@@ -1,9 +1,5 @@
-.toolbar {
-	padding: 5px;
-}
 
 body {
-	margin: 0;
 	min-width: 998px;
     font-size: 12px;
 }
@@ -20,3 +16,5 @@ body {
 	text-align: center;
 	color: white;
 }
+
+.ui-grid-row { padding: 5px; }

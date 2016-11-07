@@ -1,9 +1,13 @@
 $(document).ready(function() {
+
     var $msgs = $('#role-messages');
     var $role = $('#role-dialog');
     var $roles = $('#role-data-table');
     var $rolesContextMenu = $('#roles-context-menu');
-
+    
+    
+    $('#action-panel').puipanel({ toggleable: true });
+    $('#nav-panel').puipanel({ toggleable: true });
     $msgs.puimessages();
     
     $role.puidialog({
