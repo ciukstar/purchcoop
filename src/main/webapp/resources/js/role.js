@@ -62,6 +62,6 @@ $(document).ready(function() {
         target: $roles
     });
 
-    $('#create-new-role-anchor, #edit-selected-role-anchor').on('click', function() { $role.puidialog('show'); });
-    $('#delete-selected-role-anchor').on('click', function() { $role.puidialog('show') });
+    $('.create-new-role-anchor, .edit-selected-role-anchor').on('click', function() { $role.puidialog('show'); });
+    $('.delete-selected-role-anchor').on('click', function() { $role.puidialog('show') });
 });
