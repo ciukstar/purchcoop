@@ -1,18 +1,11 @@
-#wrapper {
-    display: table;
-}
-#leftnav, #content {
-    display: table-cell;
-}
 
 #leftnav {
-    width: 15%;
-}
-
-.ui-panel {
-    margin-bottom: 10px;
+    width: 14em;
+    float: left;
+    margin: 0px 0px 4px 4px;
 }
 
 #content {
-    padding: 5px 5px;
+    margin: 5px 4px 4px 14.5em;
 }
+
