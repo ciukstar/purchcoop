@@ -4,10 +4,8 @@ $(document).ready(function() {
     var $role = $('#role-dialog');
     var $roles = $('#role-data-table');
     var $rolesContextMenu = $('#roles-context-menu');
-    
-    
-    $('#action-panel').puipanel({ toggleable: true });
-    $('#nav-panel').puipanel({ toggleable: true });
+
+    $('#roles-leftnav').puimenu();
     $msgs.puimessages();
     
     $role.puidialog({
